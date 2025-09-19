@@ -1,1 +1,9 @@
 # Linkerd
+
+```
+- kubectl create ns demo4
+- kubectl annotate namespace demo4 linkerd.io/inject=enabled
+
+- kubectl run curl -n demo4 --rm -it --image=curlimages/curl -- sleep 3600
+- kubectl exec -it -n demo4 curl -c curl -- sh
+```
