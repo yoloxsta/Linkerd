@@ -1,0 +1,62 @@
+# service-a-v1
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-a-v1
+  namespace: demo4
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: service-a
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: service-a
+        version: v1
+    spec:
+      containers:
+      - name: service-a
+        image: hashicorp/http-echo
+        args: ["-text=Hello from Service A v1"]
+        ports:
+        - containerPort: 5678
+---
+# service-a-v2
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-a-v2
+  namespace: demo4
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: service-a
+      version: v2
+  template:
+    metadata:
+      labels:
+        app: service-a
+        version: v2
+    spec:
+      containers:
+      - name: service-a
+        image: hashicorp/http-echo
+        args: ["-text=Hello from Service A v2"]
+        ports:
+        - containerPort: 5678
+---
+# A single Service pointing to both versions
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-a
+  namespace: demo4
+spec:
+  selector:
+    app: service-a
+  ports:
+  - port: 80
+    targetPort: 5678

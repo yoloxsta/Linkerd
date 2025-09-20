@@ -1,0 +1,11 @@
+apiVersion: linkerd.io/v1alpha2
+kind: ServiceProfile
+metadata:
+  name: service-a.demo4.svc.cluster.local
+  namespace: demo4
+spec:
+  routes:
+  - name: "GET /"
+    condition:
+      pathRegex: /
+    isRetryable: true
