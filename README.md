@@ -1,5 +1,7 @@
 # Linkerd
 
+- https://github.com/mehrdadrad/servicemesh-examples
+
 ```
 - kubectl create ns demo4
 - kubectl annotate namespace demo4 linkerd.io/inject=enabled
