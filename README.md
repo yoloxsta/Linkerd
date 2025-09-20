@@ -12,6 +12,10 @@
 ---
 - kubectl get deploy -n demo -o yaml | linkerd inject - | kubectl apply -f -
 
+- kubectl get deploy frontend -n demo -o yaml \
+  | linkerd inject - \
+  | kubectl apply -f -
+
 ---
 
 Install Gateway API CRDs
