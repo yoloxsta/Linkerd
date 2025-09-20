@@ -10,6 +10,9 @@
 - kubectl exec -it -n demo4 curl -c curl -- sh
 
 ---
+- kubectl get deploy -n demo -o yaml | linkerd inject - | kubectl apply -f -
+
+---
 
 Install Gateway API CRDs
 
