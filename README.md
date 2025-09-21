@@ -83,4 +83,16 @@ linkerd install --set proxyInit.runAsRoot=true | kubectl apply -f -
 4. Verify Installation
 linkerd check
 
+Install Linkerd Viz Extension
+
+If you want to use the dashboard:
+
+- linkerd viz install | kubectl apply -f -
+- linkerd viz check
+
+
+Then forward the dashboard:
+
+- linkerd viz dashboard &
+
 ```
