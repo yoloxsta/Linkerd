@@ -1,6 +1,7 @@
 # Linkerd
 
 - https://github.com/mehrdadrad/servicemesh-examples
+- https://github.com/BuoyantIO/service-mesh-academy
 
 ```
 - kubectl create ns demo4
