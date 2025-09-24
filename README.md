@@ -97,3 +97,11 @@ Then forward the dashboard:
 - linkerd viz dashboard &
 
 ```
+
+## Test on Minikube
+
+```
+kubectl -n emojivoto port-forward svc/web-svc 8080:80
+
+ssh -L 8080:127.0.0.1:8080 ubuntu@34.226.155.18
+```
