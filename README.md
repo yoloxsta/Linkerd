@@ -102,6 +102,8 @@ Then forward the dashboard:
 
 ```
 kubectl -n emojivoto port-forward svc/web-svc 8080:80
-
+kubectl -n linkerd-viz port-forward svc/web 8084:8084
 ssh -L 8080:127.0.0.1:8080 ubuntu@34.226.155.18
+ssh -L 8084:127.0.0.1:8084 ubuntu@34.226.155.18
+
 ```
