@@ -97,7 +97,6 @@ Then forward the dashboard:
 - linkerd viz dashboard &
 
 ```
-
 ## Test on Minikube
 
 ```
