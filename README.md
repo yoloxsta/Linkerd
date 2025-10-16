@@ -3,6 +3,7 @@
 - https://github.com/mehrdadrad/servicemesh-examples
 - https://github.com/BuoyantIO/service-mesh-academy
 - https://spacelift.io/blog/what-is-a-service-mesh
+- https://medium.com/@megaurav25/exploring-the-linkerd-dashboard-via-ingress-with-essential-commands-ca85c9aea933
 
 ```
 - kubectl create ns demo4
