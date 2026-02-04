@@ -107,3 +107,76 @@ ssh -L 8080:127.0.0.1:8080 ubuntu@34.226.155.18
 ssh -L 8084:127.0.0.1:8084 ubuntu@34.226.155.18
 
 ```
+## Linkerd On EKS
+```
+Expose Linkerd Viz UI at:
+
+https://sta-api.xyz.com
+
+
+without port-forward and without the DNS rebinding error.
+
+STEP 1 — Edit the Linkerd Viz Web Deployment
+
+Run this exact command:
+
+kubectl edit deployment web -n linkerd-viz
+
+STEP 2 — Find the -enforced-host line
+
+Scroll until you see this exact block:
+
+containers:
+- args:
+  - -linkerd-metrics-api-addr=metrics-api.linkerd-viz.svc.cluster.local:8085
+  - -cluster-domain=cluster.local
+  - -controller-namespace=linkerd
+  - -log-level=info
+  - -log-format=plain
+  - -enforced-host=^(localhost|127\.0\.0\.1|web\.linkerd-viz\.svc\.cluster\.local|web\.linkerd-viz\.svc|\[::1\])(:\d+)?$
+  - -enable-pprof=false
+
+STEP 3 — Replace ONLY this line
+❌ OLD
+- -enforced-host=^(localhost|127\.0\.0\.1|web\.linkerd-viz\.svc\.cluster\.local|web\.linkerd-viz\.svc|\[::1\])(:\d+)?$
+
+✅ NEW (copy-paste exactly)
+- -enforced-host=^(localhost|127\.0\.0\.1|web\.linkerd-viz\.svc\.cluster\.local|web\.linkerd-viz\.svc|sta-api\.xyz\.com|\[::1\])(:\d+)?$
+
+
+👉 Do not change anything else
+
+STEP 4 — Save and exit
+
+vim: ESC → :wq → Enter
+
+nano: Ctrl+O → Enter → Ctrl+X
+
+Kubernetes will automatically restart the pod.
+
+STEP 5 — Wait for rollout
+
+Run:
+
+kubectl rollout status deployment web -n linkerd-viz
+
+
+You should see:
+
+deployment "web" successfully rolled out
+
+STEP 6 — Confirm pod restarted
+kubectl get pods -n linkerd-viz
+
+
+You should see AGE reset (new pod).
+
+STEP 7 — Open in browser
+
+Visit:
+
+https://sta-api.xyz.com
+
+
+✅ Linkerd Viz UI loads
+```
