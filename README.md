@@ -28,7 +28,6 @@ Run this in your cluster:
 kubectl apply -f https://github.com/kubernetes-sigs/gateway-api/releases/download/v0.7.1/standard-install.yaml
 
 (You can replace v0.7.1 with the latest release).
-
 ---
 - Disable for a single namespace
 
