@@ -20,7 +20,6 @@
   | kubectl apply -f -
 
 ---
-
 Install Gateway API CRDs
 
 Run this in your cluster:
