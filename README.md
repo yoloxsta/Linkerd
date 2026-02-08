@@ -36,7 +36,6 @@ If you enabled injection at the namespace level:
 - linkerd uninstall | kubectl delete -f -
 
 ```
-
 ## Install
 
 ```
