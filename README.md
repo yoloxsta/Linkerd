@@ -37,7 +37,6 @@ If you enabled injection at the namespace level:
 
 ```
 ## Install
-
 ```
 Run this command to download the latest stable Linkerd CLI:
 
