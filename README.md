@@ -42,7 +42,6 @@ Run this command to download the latest stable Linkerd CLI:
 
 - curl -sL https://run.linkerd.io/install | sh
 
-
 This will install the CLI into $HOME/.linkerd2/bin.
 
 Add Linkerd to PATH
