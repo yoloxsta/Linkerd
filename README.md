@@ -34,7 +34,6 @@ If you enabled injection at the namespace level:
 - kubectl annotate namespace demo4 linkerd.io/inject=disabled --overwrite
 
 - linkerd uninstall | kubectl delete -f -
-
 ```
 ## Install
 ```
