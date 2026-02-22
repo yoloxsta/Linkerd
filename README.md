@@ -20,7 +20,6 @@
 
 ---
 Install Gateway API CRDs
-
 Run this in your cluster:
 
 kubectl apply -f https://github.com/kubernetes-sigs/gateway-api/releases/download/v0.7.1/standard-install.yaml
