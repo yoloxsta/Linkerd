@@ -1,5 +1,4 @@
 # Linkerd
-
 - https://github.com/mehrdadrad/servicemesh-examples
 - https://github.com/BuoyantIO/service-mesh-academy
 - https://spacelift.io/blog/what-is-a-service-mesh
